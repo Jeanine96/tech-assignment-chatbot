@@ -8,38 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var textFieldtext: String = ""
     
     var body: some View {
-       VStack() {
-          Text("Chat Ai - Chatbot")
-               .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-               .bold()
-           
-           Divider()
-           
-           Text("How can I help you?")
-           
-           HStack(){
-               TextField(
-                "Message Chatbot", text: $textFieldtext
-               )
-               .border(Color.gray)
-               .padding()
-               .textFieldStyle(.roundedBorder)
-               
-               Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                   Image(systemName: "mic")
-               })
-               .padding()
-               }
-           }
-            
-               
+        NavigationStack() {
+            Text("How can I help you?")
                 
+                .navigationTitle("Chat Ai - Chatbot")
+            
+            Spacer()
+            
+            Button(action: {}, label: {
+                Image(systemName: "mic")
+                    .font(.system(size: 70))
+            })
         }
     }
-
+}
 
 #Preview {
     ContentView()
