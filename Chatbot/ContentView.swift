@@ -8,22 +8,49 @@
 import SwiftUI
 
 struct ContentView: View {
+    //  Variables for the list
+    @State var messages = ["Hello, how can I help you?"]
+    @State var newMessage = ""
     
     var body: some View {
         NavigationStack() {
-            Text("How can I help you?")
-                
-                .navigationTitle("Chat Ai - Chatbot")
+            Text("Chatbot")
+                .font(.title)
+            //          List of messages
+            List(messages, id: \.self){
+                message in Text (message)
+            }
+        }
+        
+        Spacer()
+        //      Textfield with paperplane and mic button
+        HStack(){
+            TextField("Message Chatbot", text: $newMessage)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
+                .padding()
             
-            Spacer()
-            
+            Button(action: {addMessage()}, label: {
+                Image(systemName:"paperplane")
+                    .font(.system(size: 24))
+                    .padding()
+            })
             Button(action: {}, label: {
-                Image(systemName: "mic")
-                    .font(.system(size: 70))
+                Image(systemName:"mic")
+                    .font(.system(size: 24))
+                    .padding()
             })
         }
+        
+    }
+    //  Made function to add messages
+    func addMessage(){
+        messages.append(newMessage)
+        newMessage = ""
     }
 }
+
 
 #Preview {
     ContentView()
