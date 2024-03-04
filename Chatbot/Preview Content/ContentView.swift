@@ -16,7 +16,7 @@ struct ContentView: View {
         NavigationStack() {
             Text("Chatbot")
                 .font(.title)
-            //          List of messages
+            //List of messages
             List(messages, id: \.self){
                 message in Text (message)
             }
