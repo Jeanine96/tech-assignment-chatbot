@@ -7,62 +7,18 @@
 
 import SwiftUI
 
-//struct ContentView: View {
-//    //  Variables for the list
-//    @State var messages = ["Hello, how can I help you?"]
-//    @State var newMessage = ""
-//
-//    var body: some View {
-//        NavigationStack() {
-//            Text("Chatbot")
-//                .font(.title)
-//            //List of messages
-//            List(messages, id: \.self){
-//                message in Text (message)
-//            }
-//        }
-//
-//        Spacer()
-//        //      Textfield with paperplane and mic button
-//        HStack(){
-//            TextField("Message Chatbot", text: $newMessage)
-//                .padding()
-//                .background(Color(.systemGray6))
-//                .cornerRadius(8)
-//                .padding()
-//
-//            Button(action: {addMessage()}, label: {
-//                Image(systemName:"paperplane")
-//                    .font(.system(size: 24))
-//                    .padding()
-//            })
-//            Button(action: {}, label: {
-//                Image(systemName:"mic")
-//                    .font(.system(size: 24))
-//                    .padding()
-//            })
-//        }
-//
-//    }
-//    //  Made function to add messages
-//    func addMessage(){
-//        messages.append(newMessage)
-//        newMessage = ""
-//    }
-//}
-
 struct ContentView: View {
     @ObservedObject var viewModel = ViewModel()
     var body: some View {
         VStack{
+            Text("Chatbot").font(.title)
             ScrollView{
-                Text("Chatbot").font(.title)
-                //              Put messages in array
+                
+           //Put messages in array
                 ForEach(viewModel.messages.filter({$0.role != .system}), id: \.id){
                     message in messageView(message: message)
                 }
             }
-                
                 
                 HStack{
                     TextField("Ask Chatbot", text: $viewModel.userInput)
@@ -75,30 +31,32 @@ struct ContentView: View {
                             .font(.system(size: 24))
                             .padding()
                     })
-                    Button(action: {}, label: {
-                        Image(systemName:"mic")
-                            .font(.system(size: 24))
-                            .padding()
-                    })
+//                    Button(action: {}, label: {
+//                        Image(systemName:"mic")
+//                            .font(.system(size: 24))
+//                            .padding()
+//                    })
                     
                 }
                 .padding()
-                
-            
         }
     }
-  
+    
+//  Ui for the incoming messages from user and assistent
     func messageView(message: Message) -> some View{
         HStack{
             if message.role == .user {Spacer()}
             Text(message.content)
                 .padding()
-                
+                .background(message.role == .user ?
+                            Color.blue.opacity(0.2):
+                                Color.gray.opacity(0.2))
+                .cornerRadius(8.0)
             if message.role == .assistant{Spacer()}
+            
         }
-       
+        .padding()
     }
-    
 }
 
 #Preview {
