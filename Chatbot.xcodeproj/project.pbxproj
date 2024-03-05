@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		9408386F2B97159A00AB67EF /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		940838712B9715DE00AB67EF /* OpenAiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAiService.swift; sourceTree = "<group>"; };
-		940838782B97169000AB67EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		940838782B97169000AB67EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../ContentView.swift; sourceTree = "<group>"; };
 		94211E642B88D4CE00D1793A /* Chatbot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatbot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94211E672B88D4CE00D1793A /* ChatbotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotApp.swift; sourceTree = "<group>"; };
 		94211E6B2B88D4CF00D1793A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				94211E672B88D4CE00D1793A /* ChatbotApp.swift */,
-				940838782B97169000AB67EF /* ContentView.swift */,
 				94211E6B2B88D4CF00D1793A /* Assets.xcassets */,
 				94211E6D2B88D4CF00D1793A /* Preview Content */,
 				9408386F2B97159A00AB67EF /* ChatViewModel.swift */,
@@ -73,6 +72,7 @@
 		94211E6D2B88D4CF00D1793A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				940838782B97169000AB67EF /* ContentView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";

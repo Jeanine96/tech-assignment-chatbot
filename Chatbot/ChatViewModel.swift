@@ -8,7 +8,8 @@
 import Foundation
 
 extension ContentView {
-    class Viewmodel: ObservableObject{
+    
+    class ViewModel: ObservableObject{
         //      Variables can be used in other views with published
         @Published var messages: [Message] = []
         @Published var userInput = ""
@@ -17,14 +18,14 @@ extension ContentView {
         
         func sendMessage(){
             //            Create a newMessage
-            let newMessage = Message(id: UUID(), role: .me, content: userInput, created: Date())
+            let newMessage = Message(id: UUID(), role: .user, content: userInput, created: Date())
             //            Adds new element to array
             messages.append(newMessage)
             userInput = ""
             
             
             Task {
-                let response = await openAiService.sendMessage(messages:messages)
+                let response = await openAiService.sendMessage(messages: messages)
                 guard let receivedAiMessage = response?.choices.first?.message
                 else {
                     print ("Didn't receive message")
@@ -45,3 +46,6 @@ struct Message: Decodable{
     let content: String
     let created: Date
 }
+
+
+
